@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products Electron</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css"> -->
+</head>
+<body>
+    <div class="container p-4">
+        <div class="row" id="products">
+    
+        </div>
+    </div>  
+    
+    <script>
+        const {ipcRenderer} = require('electron')
+
+        const $products = document.querySelector('#products')
+        let productJSON
+        let button
+
+        window.onload = ()=>{
+            console.log('ready')
+            ipcRenderer.send('readyIndex')
+        }
+        
+        ipcRenderer.on ('new:Product',(e,newProduct) => {
+            productJSON.push(newProduct)
+            resetView()
+        })
+        ipcRenderer.on ('charge:Product',(e,products) => {
+            $products.innerHTML=""
+            productJSON = products
+            for (let index = 0; index < products.length; index++) {
+                renderTemplate(products[index],index)
+            }
+         })
+        ipcRenderer.on ('remove:products', e =>{
+            $products.innerHTML=""
+        })
+
+        function renderTemplate(newProduct,index){
+            const newProductTemplate = `<div class="col-xs-4 p-2">
+                                            <div class="card text-center">
+                                                <div class="card-header" style="display: inline;">
+                                                    <h5 class="" >${index}</h5> <h5 class="card-title">${newProduct.name}</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    ${newProduct.description}
+                                                    <hr/>
+                                                    ${newProduct.price}
+                                                </div>
+                                                <div class="card-footer">
+                                                    <button class="btn btn-danger btn-small" value="${index}">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>  `
+            $products.innerHTML+=newProductTemplate
+            const btns = document.querySelectorAll('.btn.btn-danger')
+            btns.forEach(btn => {
+                btn.addEventListener('click', e=>{
+                    e.target.parentElement.parentElement.parentElement.remove()
+                    productJSON[e.path[0].value] = ""   
+                    resetView()  
+                })
+            })
+        }
+        function resetView() {               
+            let tempProducts=[]
+            productJSON.forEach(product=>{
+                if(product!=""){
+                    tempProducts.push(product)
+                }
+            })
+            productJSON = tempProducts
+            console.log(productJSON)
+            $products.innerHTML=""
+            for (let index = 0; index < productJSON.length; index++) {
+                renderTemplate(productJSON[index],index)
+            }
+            ipcRenderer.send('save:Product',JSON.stringify(productJSON))
+        }
+    </script>
+</body>
+</html>
