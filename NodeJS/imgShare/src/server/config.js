@@ -20,7 +20,7 @@ module.exports = app => {
     app.set('view engine', '.hbs')
 
     //middlewares
-    app.use(morgan('dev'))
+    //app.use(morgan('dev'))
     app.use(multer({dest: path.join(__dirname, '../public/upload/temp')}).single('image'))
     app.use(express.urlencoded({extended: false}))
     app.use(express.json())
