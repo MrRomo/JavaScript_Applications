@@ -1,10 +1,15 @@
+const session = require('express-session')
 const express = require('express')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const path = require('path')
-
+const flash = require('connect-flash')
+const expressMysql = require('express-mysql-session')
+const {database} = require('./keys')
+const passport = require('passport')
 //intialization
 const app = express() 
+require('./lib/passport')
 
 // settings
 app.set('port', process.env.PORT||4000)
@@ -18,13 +23,24 @@ app.engine('.hbs', exphbs({
 }))
 app.set('view engine', '.hbs')
 //middleware
+app.use(session({
+    secret: 'nodeSession',
+    resave: false,
+    saveUninitialized: false,
+    store: new expressMysql(database)
+}))
+app.use(flash())
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
+app.use(passport.initialize())
+app.use(passport.session())
 
 //Global variables
 app.use((req,res,next) => {
-
+    app.locals.success = req.flash('success')
+    app.locals.message = req.flash('message')
+    app.locals.user = req.user
     next()
 })
 
