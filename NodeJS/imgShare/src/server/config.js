@@ -8,7 +8,7 @@ module.exports = app => {
     const errorhandler  = require('errorhandler')
     const routes = require('../routes/index')
     //Settings 
-    app.set('port', process.env.PORT||4000)
+    app.set('port', process.env.PORT||5000)
     app.set('views', path.join(__dirname,'../views'))
     app.engine('.hbs', express_Handlebars({
         defaultLayout: 'main',

@@ -11,7 +11,7 @@ require('./database')
 require('./config/passport')
 
 //Settings
-app.set('port', process.env.PORT || 4000);//utiliza el puerto del servicio en la nube || usa el 3000 for default
+app.set('port', process.env.PORT || 5000);//utiliza el puerto del servicio en la nube || usa el 3000 for default
 app.set('views', path.join(__dirname, 'views')) // para configurar la ruta de la carpeta views
 app.engine('.hbs', exhbs({
     defaultLayout: 'main', //corresponde al archivo de configuracion general de la aplicacion
@@ -44,6 +44,8 @@ app.use((req,res,next) => {
 
     next();
 })
+
+
 //Routes
 app.use(require('./routes/index'))
 app.use(require('./routes/notes'))

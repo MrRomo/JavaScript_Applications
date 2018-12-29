@@ -3,6 +3,7 @@ $('#btn-toggle-comment').click(e=>{
     e.preventDefault()
     $('#postComment').slideToggle()
 })
+
 $('#btn-like').click(function(e){
     e.preventDefault()
     let imageId = $(this).data('id')
@@ -12,6 +13,7 @@ $('#btn-like').click(function(e){
             $('.likes-count').text(data.likes)
         })
 })
+
 $('#btn-delete').click(function(e){
     e.preventDefault()
     let $this = $(this)

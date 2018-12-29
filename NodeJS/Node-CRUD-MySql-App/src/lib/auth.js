@@ -8,7 +8,7 @@ module.exports = {
     },
     isNotLoggedIn(req,res,next) {
         if(req.isAuthenticated()){
-            return res.redirect('/')
+            return res.redirect('/profile')
         }else{
             return next()
         }

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const pool = require('../database') //hace referencia a la base de datos
-const  {isLoggedIn,isNotLoggedIn}  = require('../lib/auth')
+const  {isLoggedIn} = require('../lib/auth')
 router.get('/add', isLoggedIn, (req,res) => {
     res.render('links/add')
 })
