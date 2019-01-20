@@ -1,0 +1,31 @@
+* d764ea6 (HEAD -> master, origin/master, origin/desplegando-con-now-y-detectando-vulnerabilidades-con-npm-audit, origin/HEAD) Desplegando con now y detectando vulnerabilidades con npm audit
+* 6f4f90f (origin/anadiendo-manejo-del-cache-y-seguridad-con-helmet) Añadiendo manejo del cache y seguridad con helmet
+* f7a365f (origin/npm-scripts) NPM scripts
+* 90b7c38 (origin/debugging-e-inspect) Debbuggin e inspect
+* 90c3fa0 (origin/creando-tests-para-nuestras-utilidades) Creando tests para nuestras utilidades
+* 3280510 (origin/creando-tests-para-nuestros-servicios) Creando tests para nuestros servicios
+* f6070d1 (origin/creando-tests-para-nuestros-endpoints) Creando tests para nuestros endpoints
+* a8c3348 (origin/asegurando-nuestra-api-e-identificando-rutas-sensibles) Asegurando nuestra API e identificando rutas sensibles
+* fbad644 (origin/configuracion-y-uso-de-passportjs) Configuracion y uso de Passport.js
+* d6cccbe (origin/configurando-boom-y-nuestra-pagina-404) Configurando boom y nuestra pagina 404
+* 7eb81f4 (origin/configurando-joi-para-el-manejo-de-validaciones) Configurando Joi para el manejo de validaciones
+* fc6a61a (origin/validacion-de-datos-usando-un-middleware) Validation de datos usando un middleware
+* ad03082 (origin/manejo-de-errores-usando-un-middleware) Manejo de errores usando un middleware
+* 4803c54 (origin/implementando-acciones-crud-en-mongodb) Implementando acciones CRUD en MongoDB
+* 22427a3 (origin/conectando-nuestros-servicios-con-mongodb) Conectando nuestros servicios con MongoDB
+* 73e52ba (origin/recapitulando-el-proyecto) Recapitulando el proyecto
+* cfb82f8 (origin/implementando-nuestra-capa-de-servicios) Implementando nuestra capa de servicios
+* c095365 (origin/anatomia-de-una-api-restful) Anatomia de una api restful
+* 4e3be12 (origin/manejo-de-archivos-estaticos) Manejo de archivos estaticos
+* bd1f9b1 (origin/creando-nuestro-layout-de-productos-usando-pug) Creando nuestro layout de productos usango pug
+* e1a3f35 (origin/usando-pug-como-template) Usando pug como template
+* 7ca7206 (origin/que-es-un-template-engine) Que es un template engine
+* 4a2d05b (origin/express-application-generator) express-application-generator
+* 5df1535 (origin/creando-tu-primer-servidor) Add gitignore
+* 80d4756 Creando tu primer servidor
+* 1230c6d Initial commit
+
+   ~
+  ~~~
+ ~~~~~
+~~~~~~~
