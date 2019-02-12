@@ -6,7 +6,7 @@ const path = require('path')
 app.use('/public', express.static(path.join(__dirname, './public')))
 
 //settings 
-app.set('port', 3000)
+app.set('port', 4000)
 app.set('views', path.join(__dirname,'views'))
 app.set('view engine', 'ejs')
 

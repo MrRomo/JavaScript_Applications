@@ -12,7 +12,7 @@ var upload = multer({
     if (mimetype && extname) {
       return (cb(null, true))
     } else {
-      cb("error: el archivo debe ser una imagen valida")
+      cb({message: "el archivo debe ser una imagen valida"})
     }
   }
 }).array('image', 8)
